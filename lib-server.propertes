@@ -1,0 +1,19 @@
+# datasource
+spring.datasource.url=jdbc:postgresql://localhost:5432/livraria_db
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+#eureka
+spring.cloud.loadbalancer.ribbon.enabled = false
+eureka.instance.preferIpAddress = true
+eureka.client.registerWithEureka = true
+eureka.client.fetchRegistry = true
+eureka.client.serviceUrl.defaultZone = http://localhost:8080/eureka
+
+# jpa
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.show-sql=true
+spring.flyway.enabled=true
+spring.flyway.validate-on-migrate=true
