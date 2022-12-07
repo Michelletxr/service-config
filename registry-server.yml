@@ -1,5 +1,4 @@
 eureka:
     client:
-        registry: false
         registerWithEureka: false
         fetchRegistry: false
