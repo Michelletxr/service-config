@@ -1,2 +1,39 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: 'true'
+          lower-case-service-id: 'true'
+      routes:
+      - id: message-route
+        uri: lb://SERVER-MESSAGE/message
+        predicates:
+        - Path=/message/
+      - id: user-route
+        uri: lb://USER-SERVER/user
+        predicates:
+        - Path=/user/
+      - id: lib-route
+        uri: lb://LIB-SERVER/lib
+        predicates:
+        - Path=/lib/
+    loadbalancer:
+      ribbon:
+        enabled: 'false'
 
+eureka:
+  instance:
+    preferIpAddress: 'true'
+  client:
+    fetchRegistry: 'true'
+    registerWithEureka: 'true'
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
 
