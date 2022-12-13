@@ -5,6 +5,18 @@ spring:
         locator:
           enabled: 'true'
           lower-case-service-id: 'true'
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            methods: GET
+            series: SERVER-ERROR
+            exceptions: java.io.Exception
+            backoff:
+              firstBackoff: 50ms
+              maxBackoff: 100ms
+              basedOnPreviousValue: false
+              factor: 2
       routes:
         - id: message-route
           uri: lb://SERVER-MESSAGE/message
@@ -21,8 +33,6 @@ spring:
     loadbalancer:
       ribbon:
         enabled: 'false'
-
-      
 
 eureka:
   instance:
