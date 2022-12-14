@@ -16,7 +16,7 @@ resilience4j.retry:
       maxAttempts: 5
       waitDuration: 10s
       retryExceptions:
-        - java.util.concurrent.timeoutexception
+        - java.util.concurrent.TimeoutException
         - java.net.ConnectException
 
 resilience4j.bulkhead:
