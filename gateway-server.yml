@@ -65,12 +65,12 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: *
   health:
     circuitbreakers:
-      enabled: 'true'
+      enabled: true
   endpoint:
     health:
-      show-details: always
+      show-details: ALWAYS
     gateway:
-      enabled: 'true'
+      enabled: true
