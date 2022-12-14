@@ -1,10 +1,10 @@
 resilience4j.circuitbreaker:
     instances:
       circuitBreakerService:
-        ringBufferSizeInHalfOpenState: 10s
-        ringBufferSizeInClosedState: '5'
-        failureRateThreshold: '5'
-        registerHealthIndicator: 'true'
+        ringBufferSizeInHalfOpenState: 5
+        ringBufferSizeInClosedState: 5
+        failureRateThreshold: 50
+        registerHealthIndicator: true
         waitDurationInOpenState: 5s
         recordExceptions:
           - java.lang.RuntimeException
@@ -14,24 +14,11 @@ resilience4j.retry:
   instances:
     retryService:
       maxAttempts: 5
-      waitDuration: 50s
+      waitDuration: 10s
       retryExceptions:
-        - org.springframework.web.client.HttpServerErrorException
-        - java.io.IOException
+        - java.util.concurrent.TimeoutException
+        - java.net.ConnectException
 
-resilience4j.bulkhead:
-  instances:
-    bulkHeadService:
-      maxWaitDuration: 5ms
-      maxConcurrentCalls: 5
-
-resilience4j.thread-pool-bulkhead:
-  instances:
-    bulkHeadService:
-      maxThreadPoolSize: 1
-      coreThreadPoolSize: 1
-      queueCapacity: 1
-      writableStackTraceEnabled: true
       
 eureka:
   instance:
@@ -54,3 +41,15 @@ spring:
     username: postgres
     url: jdbc:postgresql://localhost:5432/server_user
     password: postgres
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    circuitbreakers:
+      enabled: true
