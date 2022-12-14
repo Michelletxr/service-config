@@ -11,7 +11,7 @@ spring:
             retries: 3
             methods: GET
             series: SERVER-ERROR
-            exceptions: java.io.Exception
+            exceptions: java.io.IOException
             backoff:
               firstBackoff: 50ms
               maxBackoff: 100ms
