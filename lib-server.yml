@@ -14,10 +14,10 @@ resilience4j.retry:
   instances:
     retryService:
       maxAttempts: 5
-      waitDuration: 50s
+      waitDuration: 10s
       retryExceptions:
-        - org.springframework.web.client.HttpServerErrorException
-        - java.io.IOException
+        - java.util.concurrent.timeoutexception
+        - java.net.ConnectException
 
 resilience4j.bulkhead:
   instances:
@@ -28,9 +28,11 @@ resilience4j.bulkhead:
 resilience4j.thread-pool-bulkhead:
   instances:
     bulkHeadService:
-      maxThreadPoolSize: 1
-      coreThreadPoolSize: 1
-      queueCapacity: 1
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 4
+      queueCapacity: 5
+      maxConcurrentCalls: 10
+      KeepAliveDuration: 10s
       writableStackTraceEnabled: true
 
 
