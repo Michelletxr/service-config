@@ -66,8 +66,11 @@ management:
     gateway:
       enabled: true
     health:
-      show-details: ALWAYS
+      show-details: always
   endpoints:
     web:
       exposure:
         include: "*"
+  health:
+    circuitbreakers:
+      enabled: true
