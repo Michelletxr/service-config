@@ -1,10 +1,10 @@
 resilience4j.circuitbreaker:
     instances:
       circuitBreakerService:
-        ringBufferSizeInHalfOpenState: 10s
-        ringBufferSizeInClosedState: '5'
-        failureRateThreshold: '5'
-        registerHealthIndicator: 'true'
+        ringBufferSizeInHalfOpenState: 5
+        ringBufferSizeInClosedState: 5
+        failureRateThreshold: 50
+        registerHealthIndicator: true
         waitDurationInOpenState: 5s
         recordExceptions:
           - java.lang.RuntimeException
