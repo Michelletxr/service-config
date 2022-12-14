@@ -69,8 +69,6 @@ eureka:
       
 management:
   endpoint:
-    gateway:
-      enabled: true
     health:
       show-details: always
   endpoints:
