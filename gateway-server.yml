@@ -11,6 +11,7 @@ spring:
             retries: 3
             methods: GET
             series: SERVER-ERROR
+            exceptions: java.io.Exception
             backoff:
               firstBackoff: 50ms
               maxBackoff: 100ms
@@ -29,6 +30,24 @@ spring:
           uri: lb://LIB-SERVER/lib
           predicates:
             - Path=/lib/
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: libCircuitBreaker
+                failureRateThreshold: 25
+                waitDurationInOpenState: 10s
+                permittedNumberOfCallsInHalfOpenState: 5
+                recordException:
+                  - INTERNAL_SERVER_ERROR
+            - name: Retry
+              args:
+                retries: 10
+                statuses: BAD_GATEWAY
+                methods: GET
+                backoff:
+                  firstBackoff: 10s
+                  maxBackoff: 20s
+                  factor: 2
     loadbalancer:
       ribbon:
         enabled: 'false'
