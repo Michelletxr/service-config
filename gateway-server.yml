@@ -61,15 +61,16 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
-management.health.circuitbreakers.enabled: true
 management:
   endpoint:
     gateway:
       enabled: true
-  health:
-    enabled: true
-    show-details: ALWAYS
+    health:
+      show-details: ALWAYS
   endpoints:
     web:
       exposure:
         include: "*"
+  health:
+    circuitbreakers:
+      enabled: true
