@@ -35,6 +35,18 @@ spring:
       ribbon:
         enabled: 'false'
         
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp.gmail.com
+    username: michelle.teixeira.124@ufrn.edu.br
+    password: xrkzmkbbaoxcwmzo
+    port: '587'
+        
 management:
   endpoint:
     health:
