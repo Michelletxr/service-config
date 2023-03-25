@@ -52,7 +52,7 @@ spring:
     password: postgres
     driver-class-name: org.postgresql.Driver
     username: postgres
-    url: jdbc:postgresql://lib-db:5431/livraria_db
+    url: jdbc:postgresql://172.21.0.1:5431/livraria_db
   cloud:
     loadbalancer:
       ribbon:
