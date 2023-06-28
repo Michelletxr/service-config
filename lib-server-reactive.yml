@@ -1,2 +1,11 @@
 spring.data.mongodb.uri=mongodb://localhost:27017/admin
 spring.cloud.loadbalancer.ribbon.enabled = false
+
+eureka:
+  instance:
+    preferIpAddress: 'true'
+  client:
+    fetchRegistry: 'true'
+    registerWithEureka: 'true'
+    serviceUrl:
+      defaultZone: http://registry-server:8761/eureka
