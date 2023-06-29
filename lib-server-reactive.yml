@@ -1,12 +1,3 @@
-spring:
-  data:
-    mongodb:
-      uri:  mongodb://localhost:27017/admin
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
-
 eureka:
   instance:
     preferIpAddress: 'true'
