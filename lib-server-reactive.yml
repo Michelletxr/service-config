@@ -1,8 +1,1 @@
-eureka:
-  instance:
-    preferIpAddress: 'true'
-  client:
-    fetchRegistry: 'true'
-    registerWithEureka: 'true'
-    serviceUrl:
-      defaultZone: http://registry-server:8761/eureka
+
