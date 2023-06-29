@@ -18,6 +18,18 @@ spring:
               basedOnPreviousValue: false
               factor: 2
       routes:
+        - id: message-reactive-route
+          uri: lb://SERVER-MESSAGE-REACTIVE/message
+          predicates:
+            - Path=/message/
+        - id: auth-reactive-route
+          uri: lb://AUTH-SERVER-REACTIVE/auth
+          predicates:
+            - Path=/auth/
+        - id: lib-reactive-route
+          uri: lb://LIB-SERVER-REACTIVE/lib
+          predicates:
+            - Path=/lib/
         - id: message-route
           uri: lb://SERVER-MESSAGE/message
           predicates:
