@@ -29,7 +29,7 @@ spring:
         - id: lib-reactive-route
           uri: lb://LIB-SERVER-REACTIVE/lib
           predicates:
-            - Path=/lib/
+            - Path=/lib/**
         - id: message-route
           uri: lb://SERVER-MESSAGE/message
           predicates:
