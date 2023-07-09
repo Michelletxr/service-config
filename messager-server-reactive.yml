@@ -9,7 +9,12 @@ spring:
   stream:
     bindings:
       receive-in-0:
-        destination: 'data_in_2'  
+        destination: data_in
+  rabbitmq:
+    host: localhost
+    port: 672
+    username: guest
+    password: guest
 eureka:
   instance:
     preferIpAddress: 'true'
