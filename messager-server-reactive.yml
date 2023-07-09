@@ -6,7 +6,10 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
-
+  stream:
+    bindings:
+      receive-in-0:
+        destination: 'data_in'  
 eureka:
   instance:
     preferIpAddress: 'true'
