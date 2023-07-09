@@ -6,6 +6,15 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
+    stream:
+      bindings:
+        send-out-0:
+          destination: data_in
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   instance:
