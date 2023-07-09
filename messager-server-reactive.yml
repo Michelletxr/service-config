@@ -9,7 +9,7 @@ spring:
   stream:
     bindings:
       receive-in-0:
-        destination: 'data_in'  
+        destination: 'data_in_2'  
 eureka:
   instance:
     preferIpAddress: 'true'
