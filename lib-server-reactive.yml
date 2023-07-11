@@ -33,3 +33,8 @@ resilience4j.circuitbreaker:
         registerHealthIndicator: true
         waitDurationInOpenState: 15s
 
+resilience4j.retry:
+  instances:
+    retryService:
+      maxAttempts: 5
+      waitDuration: 10s
