@@ -28,8 +28,7 @@ eureka:
 resilience4j.circuitbreaker:
     instances:
       circuitBreakerServiceRegister:
-        ringBufferSizeInHalfOpenState: 5
-        ringBufferSizeInClosedState: 5
+        minimumNumberOfCalls: 5
         failureRateThreshold: 50
         registerHealthIndicator: true
         waitDurationInOpenState: 15s
