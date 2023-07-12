@@ -27,7 +27,7 @@ eureka:
 
 resilience4j.circuitbreaker:
     instances:
-      circuitBreakerServiceRegister:
+      circuitBreakerService:
         minimumNumberOfCalls: 5
         failureRateThreshold: 50
         registerHealthIndicator: true
