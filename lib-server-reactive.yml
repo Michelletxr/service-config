@@ -29,7 +29,7 @@ resilience4j.circuitbreaker:
     instances:
       circuitBreakerService:
         minimumNumberOfCalls: 5
-        failureRateThreshold: 50
+        failureRateThreshold: 30
         registerHealthIndicator: true
         waitDurationInOpenState: 15s
 
